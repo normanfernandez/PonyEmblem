@@ -1,15 +1,26 @@
 package model.attack;
 
-public abstract class Attack {
+import core.Scaling;
+
+public final class Attack {
 	protected String name;
+	protected int baseAttack;
 	protected int baseCrit;
 	protected int baseDeadly;
 	protected int accuracy;
-	protected int mainScalling;
+	protected Scaling mainScalling;
 	protected String description;
 	
-	public Attack(String name){
-		this.name = name;	
+	Attack(String name, int baseAttack, 
+			int baseCrit, int baseDeadly, int accuracy, 
+			Scaling scalling, String description){
+		this.name = name;
+		this.baseAttack = baseAttack;
+		this.baseCrit = baseCrit;
+		this.baseDeadly = baseDeadly;
+		this.accuracy = accuracy;
+		this.mainScalling = scalling;
+		this.description = description;
 	}
 	
 	public String getName() {
@@ -28,7 +39,7 @@ public abstract class Attack {
 		return accuracy;
 	}
 
-	public int getMainScalling() {
+	public Scaling getMainScalling() {
 		return mainScalling;
 	}
 
@@ -36,5 +47,7 @@ public abstract class Attack {
 		return description;
 	}
 
-	protected abstract void initAttack();
+	public int getBaseAttack() {
+		return baseAttack;
+	}
 }

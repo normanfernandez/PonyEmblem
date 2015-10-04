@@ -1,7 +1,9 @@
 package core;
 
+import model.attack.Attack;
 import model.pony.Pony;
 
 public interface Fight {
-	public void fight(Pony p);
+	public int attack(Pony defendingPony, Attack attack);
+	public void defend(Pony attackingPony, int damage);
 }

@@ -1,17 +1,26 @@
 package model.weapon;
 
-public abstract class Weapon {
+import core.Scaling;
+
+public class Weapon {
 	
 	protected String name;
 	protected int damage;
 	protected String description;
-	protected int scallingType;
+	protected Scaling scallingType;
 	protected int critChance;
 	protected int deadlyChance;
+	protected boolean specialWeapon;
 	
-	public Weapon(String name){
+	public Weapon(String name, int damage, int critChance, 
+			int deadlyChance, Scaling scalling, 
+			String description, boolean special){
 		this.name = name;
-		initWeapon();
+		this.damage = damage;
+		this.critChance = critChance;
+		this.deadlyChance = deadlyChance;
+		this.scallingType = scalling;
+		this.description = description;
 	}
 	
 	public String getName(){
@@ -26,7 +35,7 @@ public abstract class Weapon {
 		return description;
 	}
 
-	public int getScallingType() {
+	public Scaling getScallingType() {
 		return scallingType;
 	}
 
@@ -36,7 +45,5 @@ public abstract class Weapon {
 
 	public int getDeadlyChance() {
 		return deadlyChance;
-	}
-
-	protected abstract void initWeapon(); 
+	} 
 }
